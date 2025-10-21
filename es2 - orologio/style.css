@@ -1,0 +1,31 @@
+body {
+  font-family: 'Press Start 2P', monospace;
+  background-color: #1d1c1c;
+  color: #202026;
+  text-align: center;
+  padding: 5vw;
+}
+
+
+.schermo {
+  background: linear-gradient(#809a72, #536c50);
+  border: 3px dashed #6e0000;
+  padding: 5vh 10vw;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+#titolo {
+  font-size: 4vw;
+}
+
+#orario {
+  font-size: 8vw;
+  font-style: italic;
+}
+
+#messaggio {
+  font-size: 3vw;
+  font-style: italic;
+  margin-top: 20px;
+}
