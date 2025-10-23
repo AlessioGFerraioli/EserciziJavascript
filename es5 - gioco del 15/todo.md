@@ -1,6 +1,5 @@
 # todo
 
-- cambiare suoni
 - pulire codice da superflui
 - rifinire come compare scritta di vittoria (magari farla gia presente ma opacita zero, così qunado
 compare non si spostano le altre cose)

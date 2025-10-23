@@ -1,0 +1,30 @@
+body {
+  font-family: 'Rubik Glitch', sans-serif;
+  background-color: #cec5c5;
+  color: #181616;
+  text-align: center;
+  padding: 5vw;
+}
+
+#palette {
+  background: #eee;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: 10vh;
+}
+
+#testo {
+  margin: auto;
+  text-align: center;
+  margin: 5vw;
+}
+
+
+.tile {
+  transition: background-color 0.5s ease;
+}
+
+.tile:active {
+  box-shadow: 0 0 10px #fff;
+}

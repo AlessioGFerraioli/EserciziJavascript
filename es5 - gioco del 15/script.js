@@ -1,10 +1,9 @@
 class GiocoQuindici {
     constructor(schermoId, messaggioId, restartBtnId) {
         // load sounds        
-        this.audioPop = new Audio("sounds/pop.flac")
-        this.audioClave = new Audio("sounds/clave.wav")
-        this.audioFanfare = new Audio("sounds/fanfare.wav")
-        this.audioPageflip = new Audio("sounds/pageflip.wav")
+        this.audioMoveTile = new Audio("sounds/card.mp3")
+        this.audioWin = new Audio("sounds/whipcrack.wav")
+        this.audioRandomizeBtn = new Audio("sounds/shuffle_single.wav")
 
         this.messaggio = document.getElementById(messaggioId)
         this.schermo = document.getElementById(schermoId);
@@ -63,14 +62,12 @@ class GiocoQuindici {
         this.nascondiTileSedici();
     }
 
-    giocaPartita() {
-        this.inizializza(); // configura tutti i parametri per l'inizio della partita
-        
+    gioca() {
+        this.inizializza(); // configura tutti i parametri per l'inizio della partita  
         
         document.addEventListener("keydown", (event) => this.muoviTiles(event));
 
-
-        this.restartBtn.addEventListener("click", () => this.inizializza());
+        this.restartBtn.addEventListener("click", () => this.randomizeBtn());
     }
 
     nascondiTileSedici() {
@@ -137,7 +134,6 @@ class GiocoQuindici {
         return true;
     }
 
-
     muoviTileVuota(direzione) {
 
         let i = this.trovaIndexTileVuota();
@@ -145,8 +141,8 @@ class GiocoQuindici {
 
         if (!this.checkMovimentoTileVuotaAmmesso(direzione, i)) return;
 
-        this.audioPop.currentTime = 0;
-        this.audioPop.play();
+        this.audioMoveTile.currentTime = 0.15;
+        this.audioMoveTile.play();
 
         if (direzione == "sinistra") {
                 this.tiles[i].value = this.tiles[i-1].value;
@@ -169,9 +165,13 @@ class GiocoQuindici {
     }
 
     vittoria() {
-        const winConditions = [];
+        let winCondition = false;
+
+        if (this.tiles.map(t => t.value) == Array.from({length:16},(v,k)=>k+1)) {
+            winCondition = true;
+        }        
         
-        if (winConditions.some(condition => condition)) {
+        if (winCondition) {
             this.messaggio.innerHTML = "..that's Groovy!"
         }
         else {
@@ -180,22 +180,16 @@ class GiocoQuindici {
 
         
     }
-
-    resetPartita() {
-        // funzione per quando hai già giocato e premi il pulsante per giocare ancora
-        this.audioPop.currentTime = 0;
-        this.audioPop.playbackRate = 0.2;
-        this.audioPop.play();
-        this.audioPop.playbackRate = 1;  // ripristino il playback rate normale
-        this.audioPageflip.currentTime = 0.6;
-        this.audioPageflip.play();
-        this.giocaPartita(); 
+    randomizeBtn() {
+        this.audioRandomizeBtn.currentTime = 0;
+        this.audioRandomizeBtn.play();
+        this.inizializza(); 
     }
 }
 
 
 gioco = new GiocoQuindici("schermo", "messaggio", "restartBtn");
-gioco.giocaPartita();
+gioco.gioca();
 
 
 
