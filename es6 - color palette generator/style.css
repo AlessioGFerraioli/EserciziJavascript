@@ -1,6 +1,8 @@
 body {
-  font-family: 'Rubik Glitch', sans-serif;
-  background-color: #cec5c5;
+  font-family: "Outfit", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  background-color: #e6e6e6;
   color: #181616;
   text-align: center;
   padding: 5vw;
@@ -11,20 +13,37 @@ body {
   border-radius: 5px;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-auto-rows: 10vh;
+  grid-auto-rows: 16vh;
+  margin: 10%;
+  margin-left: 0%;
+  margin-right: 0%;
 }
-
-#testo {
-  margin: auto;
-  text-align: center;
-  margin: 5vw;
-}
-
 
 .tile {
   transition: background-color 0.5s ease;
+  text-align: bottom;
+  padding: 5rem;
+  font-size: 1.3em;
 }
 
-.tile:active {
+#titolo {
+  font-size: 5vw;
+  font-weight: 700;
+}
+
+#generateBtn {
+  margin: 8%;
+  padding: 2%;
+  color: #4e4e4e;
+  background-color: #e6e6e6;
+  font-size: 1.5vw;
+  font-family: "Outfit", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  border-radius: 10px;
+  border: 1px solid #a7a7a7;
+}
+
+#generateBtn:active {
   box-shadow: 0 0 10px #fff;
 }

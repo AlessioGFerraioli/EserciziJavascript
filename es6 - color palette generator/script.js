@@ -9,12 +9,18 @@ class ColorPalette {
 
     inizializza() {    
         for (let i = 1; i < 6; i++) {
-            this.tiles.push(document.getElementById('tile'+i));
+            let tileObj = {
+                element: document.getElementById('tile'+i),
+                color: this.randomHexColor()
+            }
+            this.tiles.push(tileObj);
         }
 
-        for (let tile of this.tiles){
-            tile.style.backgroundColor = `'${this.randomHexColor()}'`;
+        for (let tile of this.tiles) {           
+            tile.element.style.backgroundColor = tile.color;
+            tile.element.innerHTML = tile.color;
         }
+            
     }
 
 
@@ -26,13 +32,12 @@ class ColorPalette {
         let r = this.random(256).toString(16).padStart(2, '0');  // pad start serve per assicurarsi che isa scritto a 2 cirfre
         let g = this.random(256).toString(16).padStart(2, '0');
         let b = this.random(256).toString(16).padStart(2, '0');
-        return "#" + r + g + b
+        return "#" + r + g + b 
     }
 
 
 
     main() {
-
         this.generateBtn.addEventListener("click", e => {
                 this.inizializza();
             }
