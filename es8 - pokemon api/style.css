@@ -1,4 +1,10 @@
 body {
     background-color: rgb(144, 170, 193);    
-
+    margin: 10%;
 }
+
+#genSelector {
+    display: flex;
+    gap: 10px;
+}
+
