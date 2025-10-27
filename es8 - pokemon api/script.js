@@ -6,6 +6,7 @@ class PokemonQuiz {
         this.newPokemonBtn = document.getElementById("newPokemonBtn");
         this.feedback = document.getElementById("feedback");
         this.imagePokemon = document.getElementById("pokemonImg");
+        this.nameForm = document.getElementById("nameForm");
 
         this.currentPokemonData = {
             id: null,
@@ -45,7 +46,11 @@ class PokemonQuiz {
     inizializza() {
         console.log("inizializza..")
         this.newRandomPokemon();
-        this.submitBtn.addEventListener("click", (e) => this.guess());
+        //this.submitBtn.addEventListener("click", (e) => this.guess());
+        this.nameForm.onsubmit = (event) => {
+            event.preventDefault();
+            this.guess()
+        } 
     }
 
     guess() {

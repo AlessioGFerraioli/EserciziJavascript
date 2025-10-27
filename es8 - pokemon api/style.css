@@ -49,15 +49,26 @@ body {
     padding: 1rem;
 }
 
+#inputbox {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 button {
     border: none;
     font-family: "Outfit", sans-serif;
     padding: 0.5rem;
+    border-radius: 5px;
 }
 
 #submitBtn {
     background-color: #0554F2;
     color: white;
+}
+
+#newPokemonBtn {
+    margin: 0 4rem 0 4rem;
 }
 
 #nameInput {
