@@ -64,23 +64,29 @@ class PokemonQuiz {
 
     showGuessFeedback(win) {
         let messaggio = '';
+        let textColor = '';
 
         if (win) {
-            messaggio = "hai vinto";
+            messaggio = "Indovinato!";
+            textColor = '#0554F2'; 
         } else {
-            messaggio = "hai perso";
+            messaggio = "Ritenta..";
+            textColor = '#676767';
         }
 
         console.log(messaggio);
+        this.feedback.style = "visibility: visible";
         this.feedback.innerHTML = messaggio;
+        this.feedback.style.color = textColor;
     }
 
     async newRandomPokemon() {
+        this.feedback.style = "visibility: hidden";
         this.gens = this.getSelectedGens();
         console.log("new random pokemon..");
         this.nameInput.value = "";
         this.currentPokemonData.id = this.getRandomPokemonID();
-
+        
         await this.getPokemonData(this.currentPokemonData.id);
 
         this.displayPokemon() 
