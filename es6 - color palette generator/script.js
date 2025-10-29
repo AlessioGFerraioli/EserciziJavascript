@@ -19,6 +19,9 @@ class ColorPalette {
         for (let tile of this.tiles) {           
             tile.element.style.backgroundColor = tile.color;
             tile.element.innerHTML = tile.color;
+            console.log("analizzando tile " + tile.color)
+            console.log("is dark: ", this.isDark(tile.color));
+            if (this.isDark(tile.color)) tile.element.style.color = "#ffffff";
         }
             
     }
@@ -35,7 +38,27 @@ class ColorPalette {
         return "#" + r + g + b 
     }
 
+    hexToDec(hex) {
+        return Number('0x'+hex)
+    } 
 
+    isDark(hexColor) {
+        let r = this.hexToDec(hexColor.charAt(1) + hexColor.charAt(2) )
+        let g = this.hexToDec(hexColor.charAt(3) + hexColor.charAt(4) )
+        let b = this.hexToDec(hexColor.charAt(5) + hexColor.charAt(6) )
+
+        console.log(hexColor)
+        console.log("r " + r + " g" + g + " b" + b);
+
+        let dark = null;
+        const thr = 100;
+        const ceil = 160;
+        if ((r < thr && g < thr && b < ceil) || (r < ceil && g < thr && b < thr) || (r < thr && g < ceil && b < thr)) dark = true
+        else dark = false
+
+        console.log("dark: "+ dark)
+        return dark;
+    }
 
     main() {
         this.generateBtn.addEventListener("click", e => {

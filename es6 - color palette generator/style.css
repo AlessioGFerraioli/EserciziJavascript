@@ -4,26 +4,31 @@ body {
   font-style: normal;
   background-color: #e6e6e6;
   color: #181616;
-  text-align: center;
-  padding: 5vw;
+  overflow: hidden;
+}
+
+
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 #palette {
-  background: #eee;
-  border-radius: 5px;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-auto-rows: 16vh;
-  margin: 10%;
-  margin-left: 0%;
-  margin-right: 0%;
+  display: flex;
+  flex-direction: row;
+  height: 15vh;
+  margin-top: 2vh;
+  border-radius: 10px;
 }
 
 .tile {
   transition: background-color 0.5s ease;
   text-align: bottom;
-  padding: 5rem;
-  font-size: 1.3em;
+  font-size: 1.2rem;
+  flex: 1;
+  padding: 30px;
 }
 
 #titolo {
@@ -31,12 +36,16 @@ body {
   font-weight: 700;
 }
 
+#button {
+  padding: 5%;
+}
+
 #generateBtn {
-  margin: 8%;
-  padding: 2%;
+  margin: 2%;
+  padding: 3%;
   color: #4e4e4e;
   background-color: #e6e6e6;
-  font-size: 1.5vw;
+  font-size: 2vw;
   font-family: "Outfit", sans-serif;
   font-weight: 300;
   font-style: normal;
